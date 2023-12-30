@@ -30,7 +30,7 @@ plt.plot(x,y,'y')
 
 plt.subplot(1,2,2)
 plt.plot(y,x,'g')
-plt.show()"""
+plt.show()
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -45,4 +45,19 @@ axes1.plot(y,x)
 axes1.set_title('large')
 axes2.plot(x,y)
 axes2.set_title('small')
-plt.show()
+
+fig,ax=plt.subplots(nrows=1,ncols=2)
+ax[1].plot(y,y)
+
+plt.show()"""
+import matplotlib.pyplot as plt
+import numpy as np
+x= np.linspace(0,5,11)
+y=x**2
+fig,ax=plt.subplots(nrows=2,ncols=1,figsize=(8,2))
+
+ax[0].plot(x,y)
+ax[1].plot(y,x)
+plt.tight_layout()
+fig.savefig("new.pdf")
+
