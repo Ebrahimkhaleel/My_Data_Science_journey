@@ -44,9 +44,9 @@ plt.show()"""
 import seaborn as sns
 import matplotlib.pyplot as plt
 tips=sns.load_dataset('tips')
-flights =sns.load_dataset('flights')
+"""flights =sns.load_dataset('flights')
 
-"""numeric_tips = tips.select_dtypes(include=['float64', 'int64'])
+numeric_tips = tips.select_dtypes(include=['float64', 'int64'])
 
 # Calculate correlation matrix for numerical columns
 tc = numeric_tips.corr()
@@ -57,9 +57,13 @@ fv=flights.pivot_table(index='month',columns='year',values='passengers')
 sns.heatmap(fv,cmap='magma', linecolor='w', linewidths=0.5)
 
 plt.savefig('heatmap.pdf')
-plt.show()"""
+plt.show()
 fv=flights.pivot_table(index='month',columns='year',values='passengers')
 sns.clustermap(fv, cmap='coolwarm', standard_scale=1)
 #clustermap (basically shows simitarities between rows and column)
-plt.savefig('clustermap.pdf')
+plt.savefig('clustermap.pdf')"""
+#regression plot(linear model)
+sns.lmplot(x='total_bill',y='tip',data=tips, hue='sex',col='day',
+           aspect=0.6)
+plt.savefig('regression plot.pdf')
 plt.show()
