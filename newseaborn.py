@@ -33,10 +33,17 @@ tips=sns.load_dataset('tips')
 #SWARMPLOT(vilon plot and swarmplot can be combined)
 sns.violinplot(x='day',y='total_bill',data=tips)
 sns.swarmplot(x='day',y='total_bill',data=tips,color='black')
-plt.show()"""
+plt.show()
 import seaborn as sns
 import matplotlib.pyplot as plt
 tips=sns.load_dataset('tips')
-#FACTORPLOT(deprecated to catplot)
+#FACTORPLOT(deprecated to catplot with kind argument of bar)
 sns.catplot(x='day',y='total_bill',data=tips, kind='bar')
+plt.show()"""
+#starting matrix plot 
+import seaborn as sns
+import matplotlib.pyplot as plt
+tips=sns.load_dataset('tips')
+#STRIPPLOT
+sns.stripplot(x='day',y='total_bill',data=tips,hue='sex',jitter=True,dodge=True)
 plt.show()
