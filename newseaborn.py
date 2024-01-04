@@ -44,6 +44,22 @@ plt.show()"""
 import seaborn as sns
 import matplotlib.pyplot as plt
 tips=sns.load_dataset('tips')
-#STRIPPLOT
-sns.stripplot(x='day',y='total_bill',data=tips,hue='sex',jitter=True,dodge=True)
+flights =sns.load_dataset('flights')
+
+"""numeric_tips = tips.select_dtypes(include=['float64', 'int64'])
+
+# Calculate correlation matrix for numerical columns
+tc = numeric_tips.corr()
+#heatmap
+sns.heatmap(tc,annot=True)
+plt.show()
+fv=flights.pivot_table(index='month',columns='year',values='passengers')
+sns.heatmap(fv,cmap='magma', linecolor='w', linewidths=0.5)
+
+plt.savefig('heatmap.pdf')
+plt.show()"""
+fv=flights.pivot_table(index='month',columns='year',values='passengers')
+sns.clustermap(fv, cmap='coolwarm', standard_scale=1)
+#clustermap (basically shows simitarities between rows and column)
+plt.savefig('clustermap.pdf')
 plt.show()
