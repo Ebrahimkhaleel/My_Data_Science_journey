@@ -43,6 +43,7 @@ plt.show()"""
 #starting matrix plot 
 import seaborn as sns
 import matplotlib.pyplot as plt
+iris=sns.load_dataset('iris')
 tips=sns.load_dataset('tips')
 """flights =sns.load_dataset('flights')
 
@@ -61,9 +62,17 @@ plt.show()
 fv=flights.pivot_table(index='month',columns='year',values='passengers')
 sns.clustermap(fv, cmap='coolwarm', standard_scale=1)
 #clustermap (basically shows simitarities between rows and column)
-plt.savefig('clustermap.pdf')"""
+plt.savefig('clustermap.pdf')
 #regression plot(linear model)
 sns.lmplot(x='total_bill',y='tip',data=tips, hue='sex',col='day',
            aspect=0.6)
 plt.savefig('regression plot.pdf')
+#pairplot(pairplot,PairGrid)
+k=sns.PairGrid(iris)
+k.map_upper(plt.scatter)
+k.map_diag(sns.displot)
+k.map_lower(sns.kdeplot)"""
+#facetgrids
+g=sns.FacetGrid(data=tips,col='time',row='smoker')
+g.map(sns.displot,'total_bill')
 plt.show()
