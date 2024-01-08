@@ -8,6 +8,7 @@ df.groupby('area_type')['area_type'].agg('count')
 df1=df.drop(['area_type','society','availability','balcony'],axis='columns')
 df2=df1.dropna()
 df3=df2.isnull().sum()
+df3.total_sqft.unique()
 
 
 
